@@ -9,16 +9,24 @@ import {
 } from "react-router-dom";
 import Menu from "./Menu";
 import HeaderBlock from "./HeaderBlock";
+import Login from "./Login";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Router>
       <div className="app">
-        <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
-        {isMenuOpen && <Menu />}
-        <HeaderBlock/>
+        <Switch>
+          <Route path="/">
+            <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            {isMenuOpen && <Menu />}
+            <HeaderBlock />
+          </Route>
+          <Route path='/login'>
+            <Login/>
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
