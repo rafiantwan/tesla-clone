@@ -43,19 +43,18 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route exact path="/">
+          <Route exact path="/" element={
+            <>
             <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             {isMenuOpen && <Menu />}
             <HeaderBlock />
+            </>
+            }>
           </Route>
-          <Route exact path="/login">
-            {user ? <Navigate to="./teslaaccount" /> : <Login />}
-          </Route>
-          <Route exact path="/singup">
-            <Signup />
-          </Route>
-          <Route exact path="/teslaaccount">
-            {!user ? (
+          <Route exact path="/login" element={user ? <Navigate to="./teslaaccount" /> : <Login />}> </Route> 
+            
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/teslaaccount" element= {!user ? (
               <Navigate to="./login" />
             ) : (
               <>
@@ -65,8 +64,8 @@ function App() {
                 />
                 {isMenuOpen && <Menu />}
               </>
-            )}
-          </Route>
+            )} />
+           
         </Routes>
       </div>
     </Router>

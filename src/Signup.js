@@ -6,6 +6,8 @@ import ButtonPrimary from "./ButtonPrimary";
 import ButtonSecondary from "./ButtonSecondary";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import { auth } from "./firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import { login } from "./features/userSlice";
 
 function Signup() {
@@ -26,8 +28,7 @@ function Signup() {
       return alert("Please enter your last name!");
     }
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userAuth) => {
         userAuth.user
           .updateProfile({
@@ -59,11 +60,11 @@ function Signup() {
           </Link>
         </div>
         <div className="signup__language">
-          <span>Ar-IQ</span>
+        <LanguageOutlinedIcon /> <span>EN-CA</span>
         </div>
       </div>
       <div className="signup__info">
-        <LanguageOutlinedIcon /> <h1>Sign In</h1>
+         <h1>Sign In</h1>
         <form className="signup__form">
           <label htmlFor="fName">First Name</label>
           <input

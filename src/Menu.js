@@ -20,7 +20,7 @@ function Menu() {
       <MenuItem title="Find Us" />
       <MenuItem title="Support" />
       <MenuItem title="Investor Relations" />
-      <MenuItem title="Iraq" />
+      <MenuItem title="Canada" />
     </div>
   );
 }
