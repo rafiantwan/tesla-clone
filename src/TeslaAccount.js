@@ -17,7 +17,7 @@ function TeslaAccount({ IsMenuOpen, setIsMenuOpen }) {
       .signOut()
       .then(() => {
         dispatch(logout());
-        Navigate.push("/");
+        Navigate.push('/');
       })
       .catch((error) => alert(error.message));
   };
@@ -26,7 +26,7 @@ function TeslaAccount({ IsMenuOpen, setIsMenuOpen }) {
     <div className="teslaAccount">
       <div className="teslaAccount__header">
         <div className="teslaAccount__logo">
-          <Link to>
+          <Link to='/'>
             <img
               className="header__logoImg"
               src="https://assets.website-files.com/5e8fceb1c9af5c3915ec97a0/5ec2f037975ed372da9f6286_Tesla-Logo-PNG-HD.png"
@@ -48,13 +48,13 @@ function TeslaAccount({ IsMenuOpen, setIsMenuOpen }) {
             className="teslaAccount__menu"
             onClick={() => setIsMenuOpen(!IsMenuOpen)}
           >
-            {IsMenuOpen ? <CloseIcon /> : "Menu"}
+            {IsMenuOpen ? <CloseIcon className="teslaAccount__closeMenu" /> : "Menu"}
           </div>
         </div>
       </div>
       <div className="teslaAccount__info">
         <div className="teslaAccount__person">
-          <h4>{user?.displayName + "'s"}</h4>
+          <h4>{user?.displayName + "'s"} Tesla</h4>
         </div>
         <div className="teslaAccount__infoRight">
           <Link>Home</Link>
